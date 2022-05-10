@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar} from "expo-status-bar"
+import {SafeAreaView, StyleSheet} from "react-native"
+import {useFonts} from "expo-font"
+
+import {TaskList} from "./src/screens/TaskList"
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    const [loaded] = useFonts({
+        Lato: require("./src/assets/Lato.ttf"),
+    })
+
+    if (!loaded) {
+        return null
+    }
+
+    return (
+        <SafeAreaView style={styles.container}>
+            <TaskList />
+            <StatusBar style="light" backgroundColor="transparent" />
+        </SafeAreaView>
+    )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    container: {
+        flex: 1,
+    },
+})
