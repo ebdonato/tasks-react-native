@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import {useState} from "react"
 import {
     StyleSheet,
     View,
@@ -34,10 +34,11 @@ export function AddTask({isVisible, onCancel, onSave}: Props) {
                 value={date}
                 is24Hour={true}
                 onChange={(_, newDate) => {
-                    setDate(newDate as Date)
+                    setDate(newDate || new Date())
                     setShowDatePicker(false)
                 }}
                 testID="dateTimePicker"
+                timeZoneOffsetInMinutes={-180}
             />
         )
 
