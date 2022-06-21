@@ -2,7 +2,7 @@ import {StyleProp, StyleSheet, Text, TextInput, View, ViewStyle} from "react-nat
 import Icon from "@expo/vector-icons/FontAwesome"
 
 interface Props {
-    icon: any
+    icon: keyof typeof Icon.glyphMap
     value: string
     placeholder: string
     onChangeText: (text: string) => void
